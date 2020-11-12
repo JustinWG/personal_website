@@ -26,7 +26,7 @@ body {
     padding: 0;
   }
   .heroImage {
-    background-image: url('Hero_Image.jpeg');
+    background-image: url('Hero_Image.jpg');
     height: 100vh;
     width: 100vw;
     background-attachment: fixed;
@@ -68,7 +68,7 @@ body {
 .boldHeroHeading:before, .boldHeroHeading:after {
   content: "";
   display: inline-block;
-  width: 5%;
+  width: 4%;
   margin: 0 .15em 0 -55%;
   vertical-align: middle;
   border-bottom: 2px solid;
@@ -112,7 +112,7 @@ body {
     content: "";
     display: inline-block;
     height: 20%;
-    width: 5%;
+    width: 4%;
     margin: 0 .15em 0 -55%;
     vertical-align: middle;
     border-bottom: 2px solid;
