@@ -7,7 +7,7 @@ body {
   width: 100%;
 
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto 200px;
+  grid-template-rows: auto auto auto;
   grid-gap: 0px;
   grid-template-areas: "hero"
                        "main"
@@ -226,10 +226,10 @@ body {
   margin-left: 2em;
 }
 
-.footer {
+/* .footer {
   grid-area: footer;
   background: lightgray
-  }
+  } */
 
 
   
