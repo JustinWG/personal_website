@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'resume/style.css' %}">
+    <meta charset="utf-8">
+    <title>I'm Justin Gold</title>
+  </head>
+  <body>
+        <div class="container">
+            <div class="hero">
+                <section class="heroBanner">
+                    <div class = "heroImage">
+                        <div class="italicHeroHeading">Hi, I'm</div>
+                        <div class="boldHeroHeading">Justin Gold</div>
+                        <div class="italicJokeLine">And I am Confused</div>
+                    </div>
+                </section>
+            </div>
+            <div class="main">
+                <section class="journeyContainer">
+                    <div class="journeyHeader">
+                        My journey
+                    </div>
+                    {% for step in JourneySteps %}
+                        <div class="journeyStep">
+                            <div class='journeyText'>
+                                {% if step.link %}
+                                    <a class="journeyStepHeadline1" href={{step.link}} target='_blank' style="text-decoration: none;">
+                                    {{step.title}} <br>
+                                    </a>
+                                {% else %}
+                                    <div class="journeyStepHeadline1">{{step.title|safe}}</div>
+                                {% endif %}
+                                <div class="journeyStepHeadline2">{{step.employer}}, {{step.start_year}}-{{step.end_year}}</div>
+                                <div class="journeyStepHeadline3">{{step.city}}, {{step.state}}</div>
+                                <div class="journeyStepDescription">{{step.description | linebreaks}}</div>
+                            </div>
+                            {% if step.link %}
+                                <a class = 'journeyStepImage' href = {{step.link}} target='_blank'>
+                                <img src="{{step.cover_image.url}}" class='journeyStepImage' alt="{{step.employer}}"> </a>
+                            {% else %}
+                                <img src="{{ step.cover_image.url}}" class='journeyStepImage' alt="{{step.employer}}">
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </section>
+                <section class="JourneyContainer">
+                    <div class="journeyHeader">
+                        Projects
+                    </div>
+                    {% for project in Projects %}
+                        <div class='projectSection'>
+                            <div class='projectText'>
+                                {% if project.link %}
+                                    <a class='projectTitle' href = {{project.link}} target='_blank'>
+                                    {{project.title}} <br>
+                                    </a> 
+                                {% else %}
+                                    <div class='projectTitle'>{{project.title}}</div>
+                                {% endif %}
+                                {% if project.accomplished %}
+                                    <div class ='projectHeadlines'> Task Accomplished: </div> 
+                                    <div class='projectCopyText'> {{project.accomplished|safe}} </div> {% endif %} 
+                                {% if project.tech_used%}
+                                    <div class ='projectHeadlines'> Technology Used: </div>
+                                    <div class='projectCopyText'> {{project.tech_used|safe}} </div> {% endif %} 
+                                {% if project.lessons_learned%}
+                                    <div class ='projectHeadlines'> Lessons Learned: </div>
+                                    <div class='projectCopyText'> {{project.lessons_learned|safe}} </div> {% endif %} 
+                                {% if project.to_do%}
+                                    <div class ='projectHeadlines'> Possible Improvements: </div>
+                                    <div class='projectCopyText'> {{project.to_do|safe}} </div> {% endif %} 
+                                {% if project.detailed_description%}
+                                    <div class ='projectHeadlines'> Extra Details: </div>
+                                    <div class='projectCopyText'> {{project.detailed_description|safe}} </div> {% endif %} 
+                            </div>
+
+                            {% if project.link %}
+                                <a class='projectImage' href = {{project.link}} target='_blank'>
+                                <img src="{{project.cover_image.url}}" class='projectImage' alt="{{project.title}}"> </a>
+                            {% else %}
+                                <img src="{{project.cover_image.url}}" class='projectImage' alt="{{project.title}}">
+                            {% endif %}
+
+                        </div>
+                    {% endfor %}
+            </div>
+            <div class="footer">
+                Footer
+            </div>
+        </section>
+
+  </body>
+</html>
