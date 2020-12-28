@@ -33,9 +33,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
   }
-  
+
 
 .italicHeroHeading {
   font-family: 'TsukuARdGothic-Regular';
@@ -63,7 +63,7 @@ body {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
+
 }
 .boldHeroHeading:before, .boldHeroHeading:after {
   content: "";
@@ -96,7 +96,7 @@ body {
   width: 100vw;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-} 
+}
 
 .journeyHeader {
     font-family: 'TsukuARdGothic-Regular';
@@ -106,7 +106,7 @@ body {
     font-weight:300;
     color: #313131;
     margin: 40px;
-    
+
 }
 .journeyHeader:before, .journeyHeader:after {
     content: "";
@@ -137,7 +137,7 @@ body {
 
 .journeyStepImage {
   grid-area: stepImage;
-  width: auto; 
+  width: auto;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -226,10 +226,3 @@ body {
   margin-left: 2em;
 }
 
-/* .footer {
-  grid-area: footer;
-  background: lightgray
-  } */
-
-
-  

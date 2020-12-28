@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 from datetime import datetime
 from django.utils.dates import MONTHS
 from tinymce import models as tinymce_models
@@ -39,3 +40,20 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class SkillCategory(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class Skill(models.Model):
+    name = models.CharField(max_length=50)
+    stars = models.IntegerField(default=None, null=True, blank=True,
+                                validators=[MaxValueValidator(5), MinValueValidator(1)])
+    category = models.ForeignKey('SkillCategory', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name} {self.stars} stars"

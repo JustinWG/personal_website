@@ -18,7 +18,7 @@
                 </section>
             </div>
             <div class="main">
-                <section class="journeyContainer">
+                <section class="journeyContainer">  <!--Career Steps-->
                     <div class="journeyHeader">
                         My journey
                     </div>
@@ -45,7 +45,7 @@
                         </div>
                     {% endfor %}
                 </section>
-                <section class="JourneyContainer">
+                <section class="journeyContainer">  <!-- Projects -->
                     <div class="journeyHeader">
                         Projects
                     </div>
@@ -55,25 +55,25 @@
                                 {% if project.link %}
                                     <a class='projectTitle' href = {{project.link}} target='_blank'>
                                     {{project.title}} <br>
-                                    </a> 
+                                    </a>
                                 {% else %}
                                     <div class='projectTitle'>{{project.title}}</div>
                                 {% endif %}
                                 {% if project.accomplished %}
-                                    <div class ='projectHeadlines'> Task Accomplished: </div> 
-                                    <div class='projectCopyText'> {{project.accomplished|safe}} </div> {% endif %} 
+                                    <div class ='projectHeadlines'> Task Accomplished: </div>
+                                    <div class='projectCopyText'> {{project.accomplished|safe}} </div> {% endif %}
                                 {% if project.tech_used%}
                                     <div class ='projectHeadlines'> Technology Used: </div>
-                                    <div class='projectCopyText'> {{project.tech_used|safe}} </div> {% endif %} 
+                                    <div class='projectCopyText'> {{project.tech_used|safe}} </div> {% endif %}
                                 {% if project.lessons_learned%}
                                     <div class ='projectHeadlines'> Lessons Learned: </div>
-                                    <div class='projectCopyText'> {{project.lessons_learned|safe}} </div> {% endif %} 
+                                    <div class='projectCopyText'> {{project.lessons_learned|safe}} </div> {% endif %}
                                 {% if project.to_do%}
                                     <div class ='projectHeadlines'> Possible Improvements: </div>
-                                    <div class='projectCopyText'> {{project.to_do|safe}} </div> {% endif %} 
+                                    <div class='projectCopyText'> {{project.to_do|safe}} </div> {% endif %}
                                 {% if project.detailed_description%}
                                     <div class ='projectHeadlines'> Extra Details: </div>
-                                    <div class='projectCopyText'> {{project.detailed_description|safe}} </div> {% endif %} 
+                                    <div class='projectCopyText'> {{project.detailed_description|safe}} </div> {% endif %}
                             </div>
 
                             {% if project.link %}
@@ -85,11 +85,16 @@
 
                         </div>
                     {% endfor %}
+                </section>
+                <section class="skills"> <!--Skills-->
+                    {% for category in SkillCategories %}
+                        <div role="tabpanel" aria-labelledby= {{category.name}}>
+                            {{category.name}}
+                        </div>
+                    {% endfor %}
+                </section>
             </div>
-            {% comment %} <div class="footer">
-                Footer
-            </div> {% endcomment %}
-        </section>
+
 
   </body>
 </html>
