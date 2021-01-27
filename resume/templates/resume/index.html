@@ -3,7 +3,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="{% static 'resume/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <meta charset="utf-8">
     <title>I'm Justin Gold</title>
   </head>
@@ -12,7 +15,7 @@
             <div class="hero">
                 <section class="heroBanner">
                     <div class = "heroImage">
-                        <div class="italicHeroHeading">Hey, I'm</div>
+                        <div class="smallHeroHeading">Hello, I'm</div>
                         <div class="boldHeroHeading">Justin Gold</div>
                     </div>
                 </section>
@@ -20,7 +23,7 @@
             <div class="main">
                 <section class="journeyContainer">  <!--Career Steps-->
                     <div class="journeyHeader">
-                        My journey
+                        My Journey
                     </div>
                     {% for step in JourneySteps %}
                         <div class="journeyStep">
@@ -86,15 +89,44 @@
                         </div>
                     {% endfor %}
                 </section>
-                <section class="skills"> <!--Skills-->
-                    {% for category in SkillCategories %}
-                        <div role="tabpanel" aria-labelledby= {{category.name}}>
-                            {{category.name}}
+                {% comment %} <section class="journeyContainer"> <!--Skills-->
+                    <div class="journeyHeader">
+                        Skills
+                    </div>
+                    <div class="tabs">
+                        <div role="tabList" aria-label="Skills List">
+                            {% for category in SkillCategories %}
+                                <button role="tab" aria-selected="true" id="{{category.name}}">
+                                    {{category.name}}
+                                </button>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
-                </section>
+                        {% for key, values in Skills.items %}
+                            <div role="tabPanelContent" aria-labelledby="{{ key }}" hidden>
+                                {% for v in values %}
+                                {{v.name}} : {{v.stars}} stars <br>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section> {% endcomment %}
             </div>
+            <div class="footer">
+                <div class="journeyHeader footerText">
+                    Let's Connect
+                </div>
+                <div class="footerText">
+                    {% for connection in Connects %}
+                        <a href = {{connection.link}} target='_blank'>
+                            <img src="{{connection.icon.url}}" alt="{{connection.name}}">
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
 
-
+  {{ Skillsjsonserializer|json_script:"skills-stars" }}
+  {% comment %} <script src="{% static 'resume/scripts.js' %}"></script> {% endcomment %}
+  <script src="{% static 'resume/skill-panels.js' %}"></script>
   </body>
 </html>

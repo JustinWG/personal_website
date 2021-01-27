@@ -53,8 +53,16 @@ class Skill(models.Model):
     name = models.CharField(max_length=50)
     stars = models.IntegerField(default=None, null=True, blank=True,
                                 validators=[MaxValueValidator(5), MinValueValidator(1)])
-    category = models.ForeignKey('SkillCategory', on_delete=models.CASCADE)
+    category = models.ForeignKey('SkillCategory', on_delete=models.CASCADE, related_name='skills')
 
     def __str__(self):
         return f"{self.name} {self.stars} stars"
 
+
+class Connect(models.Model):
+    name = models.CharField(max_length=50)
+    icon = models.ImageField(upload_to='connect/')
+    link = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.name

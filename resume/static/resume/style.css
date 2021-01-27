@@ -1,44 +1,80 @@
+/*
+@font-face {
+  font-family: 'Roboto';
+  src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@300") format('woff2');
+} */
+
+html {
+  /* --BaseBackground: #F2F4FF;
+  --Header1: #313131;
+  --Header2: #0089F3;
+  --Header3: #796103;
+  --Panel1: #77AD78;
+ */
+  --BaseBackground: #F2F4FF;
+  --Header1: #2B2D42;
+  --Header2: #0070c5;
+  --Header3: #bb9200;
+  --Panel1: #DDCA7D;
+  --Panel2: #AD2831;
+}
+
 body {
-    margin:0
+    font-family: 'Lato';
+    font-weight: 100;
+    font-size: 1.3em;
+    font-style: #50555c;
+    margin:0;
+    background-color: var(--BaseBackground);
 }
 
 .container {
   display: grid;
-  width: 100%;
-
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
   grid-gap: 0px;
-  grid-template-areas: "hero"
-                       "main"
-                       "footer";
+  grid-template-columns: .3fr 1fr .3fr;
+  /* grid-template-rows: repeat(3, auto); */
+  grid-template-areas:
+    "heroContent  heroContent  heroContent"
+    ".            mainContent  ."
+    "footer footer footer";
+
+  /* grid-template-rows: auto; */
+  /* grid-template-columns: 100px 1fr 100px; */
+
+}
+
+.hero {
+  /* grid-column: 1/3; */
+  /* grid-row: 1; */
+  width: 100vw;
+  height: 100vh;
+  grid-area: heroContent;
 }
 
 .heroBanner {
-    position: relative;
-    text-align: center;
-    color: white;
+    /* position: relative; */
+    /* text-align: center; */
+    color: var(--BaseBackground);
     text-shadow: 2px 2px #000000;
-    height: 100vh;
-    width: 100vw;
     border: none;
     margin: 0 0 0 0;
     padding: 0;
-  }
-  .heroImage {
+}
+
+.heroImage {
     background-image: url('Hero_Image.jpg');
-    height: 100vh;
-    width: 100vw;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    /* z-index: -1; */
 
-  }
+}
 
-
-.italicHeroHeading {
-  font-family: 'TsukuARdGothic-Regular';
+.smallHeroHeading {
+  /* font-family: 'TsukuARdGothic-Regular'; */
   font-size: 35px;
   width: 70vw;
   margin: .7em auto;
@@ -52,7 +88,7 @@ body {
 }
 
 .boldHeroHeading {
-  font-family: 'TsukuARdGothic-Regular';
+  /* font-family: 'TsukuARdGothic-Regular'; */
   font-size: 80px;
   width: 70%;
   margin: .7em auto;
@@ -63,56 +99,34 @@ body {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-}
-.boldHeroHeading:before, .boldHeroHeading:after {
-  content: "";
-  display: inline-block;
-  width: 4%;
-  margin: 0 .15em 0 -55%;
-  vertical-align: middle;
-  border-bottom: 2px solid;
-}
-.boldHeroHeading:after {
-  margin: 0 -55% 0 .15em;
 }
 
-.italicJokeLine {
-    font-family: 'Trebuchet MS';
-    font-size: 35px;
-    width: 70%;
-    margin: .7em auto;
-    overflow: hidden;
-    text-align: center;
-    font-weight:300;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.main {
+  grid-area: mainContent;
+  display: grid;
 }
 
 .journeyContainer {
   display: grid;
-  width: 100vw;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
 }
 
 .journeyHeader {
-    font-family: 'TsukuARdGothic-Regular';
+    /* font-family: 'TsukuARdGothic-Regular'; */
     font-size: 40px;
     overflow: hidden;
     text-align: center;
     font-weight:300;
-    color: #313131;
+    color: var(--Header1);
     margin: 40px;
-
+    letter-spacing: 2px;
 }
+
 .journeyHeader:before, .journeyHeader:after {
     content: "";
     display: inline-block;
     height: 20%;
-    width: 4%;
+    width: 8%;
     margin: 0 .15em 0 -55%;
     vertical-align: middle;
     border-bottom: 2px solid;
@@ -123,15 +137,14 @@ body {
 
 .journeyStep {
   display: grid;
-  width: 100vw;
   margin: 0px 0px 30px 0px;
-  grid-template-columns: 1fr 1.4fr .2fr 3.0fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas: ". stepImage . stepText ."
-                       ". .         . stepText .";
+  gap: 30px;
+  grid-template-columns: .4fr 1fr;
+  grid-template-areas: "stepImage stepText"
 }
 
 .journeyText {
+  font-style: #50555c;
   grid-area: stepText;
 }
 
@@ -140,51 +153,51 @@ body {
   width: auto;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: fill;
   border-radius: 25px;
+  float: right;
 }
 
 .journeyStepHeadline1 {
   grid-area: stepText;
-  font-family: TsukuARdGothic-Regular;
-  font-size: 30px;
-  color: #0089F3;
+  /* font-family: TsukuARdGothic-Regular; */
+  font-size: 1.7em;
+  color: var(--Header2);
   letter-spacing: 0.36px;
   text-align: left;
 }
 
 .journeyStepHeadline2 {
   grid-area: stepText;
-  font-family: TsukuARdGothic-Regular;
-  font-size: 20px;
-  color: #796103;
+  /* font-family: TsukuARdGothic-Regular; */
+  font-size: 1.4em;
+  color: var(--Header3);
   letter-spacing: 0.5px;
   text-align: left;
 }
 
 .journeyStepHeadline3 {
   grid-area: stepText;
-  font-family: TsukuARdGothic-Regular;
-  font-size: 20px;
+  /* font-family: TsukuARdGothic-Regular; */
+  box-shadow: var(--Header1);
+  font-size: 1.4em;
   color: gray;
   letter-spacing: 0.36px;
   text-align: left;
-  }
+}
 
 .journeyStepDescription {
   grid-area:  stepText;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   letter-spacing: 0px;
 }
 
 .projectSection {
   display: grid;
-  width: 100vw;
   margin: 0px 0px 30px 0px;
-  grid-template-columns: 1fr 3.0fr .05fr 1.4fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas: ". projectText . projectImage ."
-                       ". projectText . .            .";
+  grid-template-columns: 1fr .4fr;
+  gap: 30px;
+  grid-template-areas: "projectText projectImage"
 }
 
 .projectText {
@@ -195,15 +208,15 @@ body {
   grid-area: projectImage;
   width: auto;
   max-width: 100%;
-  object-fit: contain;
+  object-fit: fill;
   border-radius: 25px;
 }
 
 .projectTitle {
   grid-area: projectText;
-  font-family: TsukuARdGothic-Regular;
+  /* font-family: TsukuARdGothic-Regular; */
   font-size: 30px;
-  color: #0089F3;
+  color: var(--Header2);
   letter-spacing: 0.36px;
   text-align: left;
   text-decoration: none;
@@ -211,9 +224,9 @@ body {
 
 .projectHeadlines {
   grid-area: stepLocation;
-  font-family: TsukuARdGothic-Regular;
+  /* font-family: TsukuARdGothic-Regular; */
   font-size: 20px;
-  color: #796103;
+  color: var(--Header3);
   letter-spacing: 0.36px;
   text-align: left;
   margin-left: 1em;
@@ -221,8 +234,80 @@ body {
 
 .projectCopyText {
   grid-area: projectText;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   letter-spacing: 0px;
   margin-left: 2em;
 }
 
+
+.tabs {
+  display: grid;
+}
+
+
+[role="tabList"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+}
+
+[role="tabPanelContent"] {
+  background: var(--Panel1);
+  padding: 2rem;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  letter-spacing: 0px;
+  column-count: 2;
+  text-align: center;
+}
+
+[role="tabPanelLine"] {
+  margin: 7px 0px 0px 0px;
+  cursor: default;
+
+}
+
+.grow {
+  transition: all .2s ease-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+  transform-origin: left top;
+}
+
+button {
+  background: lightgrey;
+  border: 0;
+  color: black;
+  cursor:pointer;
+  /* font-family: TsukuARdGothic-Regular; */
+  font-size: 30px;
+  border-radius: 5px 5px 0 0;
+  box-shadow: inset 0 -2px 5px  rgba(0,0,0,0.2);
+  border: black;
+  margin: 0px;
+}
+
+button[aria-selected="true"] {
+  background: var(--Panel1);
+  color: black;
+  /* font-family: TsukuARdGothic-Regular; */
+  font-size: 30px;
+  box-shadow: none;
+}
+
+button:focus {
+  outline: 0;
+  --bs-color: rgba(0,0,0,0.6);
+}
+
+.footer {
+  background-color: var(--Header2);
+  grid-area: footer;
+  margin: 40px 0px 0px 0px;
+  text-align: center;
+}
+
+.footerText {
+  color:var(--BaseBackground);
+}
