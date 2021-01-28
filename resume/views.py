@@ -1,11 +1,7 @@
-import json
-
 from django.views.generic import TemplateView
-from rest_framework.renderers import JSONRenderer
-from django.core import serializers
 
 from .models import JourneyStep, Project, SkillCategory, Skill, Connect
-from .serializers import SkillCategorySerializer, SkillSerializer
+from .serializers import SkillCategorySerializer
 
 
 class HomePage(TemplateView):

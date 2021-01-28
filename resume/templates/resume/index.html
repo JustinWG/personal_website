@@ -89,36 +89,15 @@
                         </div>
                     {% endfor %}
                 </section>
-                {% comment %} <section class="journeyContainer"> <!--Skills-->
-                    <div class="journeyHeader">
-                        Skills
-                    </div>
-                    <div class="tabs">
-                        <div role="tabList" aria-label="Skills List">
-                            {% for category in SkillCategories %}
-                                <button role="tab" aria-selected="true" id="{{category.name}}">
-                                    {{category.name}}
-                                </button>
-                            {% endfor %}
-                        </div>
-                        {% for key, values in Skills.items %}
-                            <div role="tabPanelContent" aria-labelledby="{{ key }}" hidden>
-                                {% for v in values %}
-                                {{v.name}} : {{v.stars}} stars <br>
-                                {% endfor %}
-                            </div>
-                        {% endfor %}
-                    </div>
-                </section> {% endcomment %}
             </div>
-            <div class="footer">
+            <div class="footer">  <!--Footer - Connections-->
                 <div class="journeyHeader footerText">
                     Let's Connect
                 </div>
-                <div class="footerText">
+                <div class="footerText connectionPanel">
                     {% for connection in Connects %}
                         <a href = {{connection.link}} target='_blank'>
-                            <img src="{{connection.icon.url}}" alt="{{connection.name}}">
+                            <img src="{{connection.icon.url}}" class="connectionIcon grow" alt="{{connection.name}}">
                         </a>
                     {% endfor %}
                 </div>
@@ -126,7 +105,6 @@
         </div>
 
   {{ Skillsjsonserializer|json_script:"skills-stars" }}
-  {% comment %} <script src="{% static 'resume/scripts.js' %}"></script> {% endcomment %}
   <script src="{% static 'resume/skill-panels.js' %}"></script>
   </body>
 </html>

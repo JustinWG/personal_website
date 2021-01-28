@@ -304,10 +304,21 @@ button:focus {
 .footer {
   background-color: var(--Header2);
   grid-area: footer;
-  margin: 40px 0px 0px 0px;
+  margin: 40px 20px 20px 20px;
   text-align: center;
 }
 
 .footerText {
   color:var(--BaseBackground);
+}
+
+.connectionPanel {
+  margin: 40px 20px 20px 20px;
+}
+
+.connectionIcon {
+  width: 50px;
+  height: 50px;
+  margin: 0px 60px 0px 10px
+
 }
