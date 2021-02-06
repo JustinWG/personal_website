@@ -35,7 +35,11 @@
                                 {% else %}
                                     <div class="journeyStepHeadline1">{{step.title|safe}}</div>
                                 {% endif %}
-                                <div class="journeyStepHeadline2">{{step.employer}}, {{step.start_year}}-{{step.end_year}}</div>
+
+                                {% if step.end_year %}
+                                    <div class="journeyStepHeadline2">{{step.employer}}, {{step.start_year}}-{{step.end_year}}</div>
+                                {% else %}
+                                    <div class="journeyStepHeadline2">{{step.employer}}, {{step.start_year}}</div>
                                 <div class="journeyStepHeadline3">{{step.city}}, {{step.state}}</div>
                                 <div class="journeyStepDescription">{{step.description | linebreaks}}</div>
                             </div>
