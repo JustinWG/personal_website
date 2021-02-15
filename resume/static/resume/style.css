@@ -101,6 +101,21 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.taglineHeroHeading {
+  /* font-family: 'TsukuARdGothic-Regular'; */
+  font-size: 35px;
+  width: 70vw;
+  margin: .7em auto;
+  overflow: hidden;
+  text-align: center;
+  font-weight:300;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-style: italic;
+}
+
 .main {
   grid-area: mainContent;
   display: grid;
