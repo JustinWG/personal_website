@@ -23,6 +23,7 @@ class JourneyStep(models.Model):
     cover_image = models.ImageField(upload_to='journeys/', null=True)
     description = models.TextField(null=True)
     link = models.URLField(blank=True)
+    display_order = models.IntegerField(unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.employer
