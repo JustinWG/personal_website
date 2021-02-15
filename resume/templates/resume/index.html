@@ -41,7 +41,9 @@
                                 {% else %}
                                     <div class="journeyStepHeadline2">{{step.employer}}, {{step.start_year}}</div>
                                 {% endif %}
-                                <div class="journeyStepHeadline3">{{step.city}}, {{step.state}}</div>
+                                {% if step.city %}
+                                    <div class="journeyStepHeadline3">{{step.city}}, {{step.state}}</div>
+                                {% endif %}
                                 <div class="journeyStepDescription">{{step.description | linebreaks}}</div>
                             </div>
                             {% if step.link %}
